@@ -1,6 +1,12 @@
 [package]
-name = "dimacs-petgraph-parser"
+name = "dimacs_petgraph_parser"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.76"
+authors = ["Raoul Luque <raoulsluque@gmail.com>"]
+description = "A parser for constructing petgraph graphs from the dimacs format"
+repository = "https://github.com/RaoulLuque/dimacs-petgraph-parser"
+
 
 [dependencies]
+petgraph = "0.6.4"
