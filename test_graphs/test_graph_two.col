@@ -1,0 +1,10 @@
+c FILE:  test_graph_one.col
+c
+c SOURCE: Raoul Luqué (raoulsluque@gmail.com)
+c
+c DESCRIPTION: This is a graph which consists of a complete 3 graph with one attached edge to the fourth vertex
+p edge 4 4
+e 1 2
+e 1 3
+e 2 3
+e 3 4

@@ -10,3 +10,4 @@ repository = "https://github.com/RaoulLuque/dimacs-petgraph-parser"
 
 [dependencies]
 petgraph = "0.6.4"
+itertools = "0.12.1"

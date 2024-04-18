@@ -63,3 +63,46 @@ pub fn read_graph<N: Clone + Default, E: Clone + Default, R: Read>(
     debug_assert_eq!(graph.edge_count(), number_of_edges);
     Ok(graph)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use itertools::Itertools;
+    use std::fs::File;
+
+    #[test]
+    fn test_read_graph_test_graph_one() {
+        let test_graph_one_file =
+            File::open("test_graphs/test_graph_one.col").expect("Should be able to read file");
+        let test_graph_one: Graph<i32, i32, petgraph::prelude::Undirected> =
+            read_graph(test_graph_one_file)
+                .expect("Test Graph One should be readable/in correct format");
+
+        assert_eq!(test_graph_one.edge_count(), 45);
+        assert_eq!(test_graph_one.node_count(), 10);
+        for mut vertices in test_graph_one.node_indices().combinations(2) {
+            let vertex_one = vertices.pop().expect("Graph should have vertices");
+            let vertex_two = vertices.pop().expect("Graph should have vertices");
+            assert!(test_graph_one.contains_edge(vertex_one, vertex_two));
+        }
+    }
+
+    #[test]
+    fn test_read_graph_test_graph_two() {
+        let test_graph_two_file =
+            File::open("test_graphs/test_graph_two.col").expect("Should be able to read file");
+        let test_graph_two: Graph<i32, i32, petgraph::prelude::Undirected> =
+            read_graph(test_graph_two_file)
+                .expect("Test Graph One should be readable/in correct format");
+
+        assert_eq!(test_graph_two.edge_count(), 4);
+        assert_eq!(test_graph_two.node_count(), 4);
+        for mut vertices in test_graph_two.node_indices().combinations(2) {
+            let vertex_one = vertices.pop().expect("Graph should have vertices");
+            let vertex_two = vertices.pop().expect("Graph should have vertices");
+            if vertex_one.index() != 3 && vertex_two.index() != 3 {
+                assert!(test_graph_two.contains_edge(vertex_one, vertex_two));
+            }
+        }
+    }
+}
