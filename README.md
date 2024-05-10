@@ -1,10 +1,12 @@
 # Dimacs Petgraph Parser
 
-Basic parser to convert graphs in [dimacs .col](http://lcs.ios.ac.cn/~caisw/Resource/about_DIMACS_graph_format.txt) format to [petgraphs](https://github.com/petgraph/petgraph) with optional treewidth information. The treewidth information is in optional lines in the following order in between the c and p lines in the dimacs.col file:
+Basic parser to convert graphs in [dimacs .col](http://lcs.ios.ac.cn/~caisw/Resource/about_DIMACS_graph_format.txt) format to [petgraphs](https://github.com/petgraph/petgraph) with optional treewidth information. The treewidth information is in optional lines in arbirtary order in between the c and p lines in the dimacs.col file:
 ```
+c ...
 t TREEWIDTH_NUMBER
 l TREEWIDTH_LOWER_BOUND_NUMBER
 u TREEWIDTH_UPPER_BOUND_NUMBER
+p ...
 ```
 (see examples in [test_graphs](test_graphs))
 
