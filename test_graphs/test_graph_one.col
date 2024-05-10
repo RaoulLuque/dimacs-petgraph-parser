@@ -3,6 +3,7 @@ c
 c SOURCE: Raoul Luqué (raoulsluque@gmail.com)
 c
 c DESCRIPTION: This is the complete graph with 10 vertices
+u 1000
 p edge 10 45
 e 1 2
 e 1 3
